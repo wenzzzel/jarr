@@ -19,4 +19,4 @@ ENTRYPOINT ["/app/entrypoint.sh"]
 ENV TZ=Etc/UTC
 
 # Define volumes
-VOLUME ["/radarrConfig", "/sonarrConfig", "/prowlarrConfig", "/bazarrConfig"] 
+VOLUME ["/radarrConfig", "/sonarrConfig", "/prowlarrConfig", "/bazarrConfig", "/tdarrConfig"] 
