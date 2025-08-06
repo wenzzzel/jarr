@@ -68,3 +68,17 @@ EOF
 else
     echo "Bazarr backup file is too small (less than 100KB) or doesn't exist, skipping upload to prevent corruption..."
 fi
+
+
+
+#TDARR
+# Download the tdarr-latest.zip backup and re-upload it with a timestamp in the name
+sshpass -p "$SFTP_PASSWORD" sftp -o StrictHostKeyChecking=no "$SFTP_USERNAME"@$SFTP_SERVER:uploads/tdarr/tdarr-latest.zip tdarr-latest.zip
+sshpass -p "$SFTP_PASSWORD" sftp -o StrictHostKeyChecking=no "$SFTP_USERNAME"@$SFTP_SERVER <<EOF
+put tdarr-latest.zip uploads/tdarr/tdarr-$(date +"%Y%m%d%H%M").zip
+EOF
+
+# Upload the latest local backup to the ftp and call it tdarr-latest.zip
+sshpass -p "$SFTP_PASSWORD" sftp -o StrictHostKeyChecking=no "$SFTP_USERNAME"@$SFTP_SERVER <<EOF
+put "../tdarrConfig/Backups/$(ls -t ../tdarrConfig/Backups/ | head -n 1)" uploads/tdarr/tdarr-latest.zip
+EOF

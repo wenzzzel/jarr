@@ -24,11 +24,14 @@ Mandatory environment variables:
  - SFTP_USERNAME
  - SFTP_PASSWORD
 
+*Note: No api key needed for Tdarr*
+
 Mandatory volumes to mount:
  - /radarrConfig
  - /sonarrConfig
  - /prowlarrConfig
  - /bazarrConfig
+ - /tdarrConfig
 
 *Note: The volumes should point to the root of the config directory for each arr app*
 
