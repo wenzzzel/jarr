@@ -32,6 +32,7 @@ Mandatory volumes to mount:
  - /prowlarrConfig
  - /bazarrConfig
  - /tdarrConfig
+ - /qbittorrentConfig
 
 *Note: The volumes should point to the root of the config directory for each arr app*
 
