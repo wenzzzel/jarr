@@ -82,3 +82,17 @@ EOF
 sshpass -p "$SFTP_PASSWORD" sftp -o StrictHostKeyChecking=no "$SFTP_USERNAME"@$SFTP_SERVER <<EOF
 put "../tdarrConfig/Backups/$(ls -t ../tdarrConfig/Backups/ | head -n 1)" uploads/tdarr/tdarr-latest.zip
 EOF
+
+
+
+#QBITTORRENT
+# Download the qbittorrent-latest.zip backup and re-upload it with a timestamp in the name
+sshpass -p "$SFTP_PASSWORD" sftp -o StrictHostKeyChecking=no "$SFTP_USERNAME"@$SFTP_SERVER:uploads/qbittorrent/qbittorrent-latest.zip qbittorrent-latest.zip
+sshpass -p "$SFTP_PASSWORD" sftp -o StrictHostKeyChecking=no "$SFTP_USERNAME"@$SFTP_SERVER <<EOF
+put qbittorrent-latest.zip uploads/qbittorrent/qbittorrent-$(date +"%Y%m%d%H%M").zip
+EOF
+
+# Upload the latest local backup to the ftp and call it qbittorrent-latest.zip
+sshpass -p "$SFTP_PASSWORD" sftp -o StrictHostKeyChecking=no "$SFTP_USERNAME"@$SFTP_SERVER <<EOF
+put "../qbittorrentConfig/$(ls -t ../qbittorrentConfig/ | head -n 1)" uploads/qbittorrent/qbittorrent-latest.zip
+EOF
