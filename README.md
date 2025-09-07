@@ -24,7 +24,7 @@ Mandatory environment variables:
  - SFTP_USERNAME
  - SFTP_PASSWORD
 
-*Note: No api key needed for Tdarr*
+*Note: No api key needed for Tdarr and qBittorrent*
 
 Mandatory volumes to mount:
  - /radarrConfig

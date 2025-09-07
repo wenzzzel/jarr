@@ -12,4 +12,4 @@ curl -X POST http://tdarr-in-a-jar:8265/api/v2/create-backup -H "accept: applica
 
 # qBittorent doesn't have an API for backups, so we just back up the config files as a zip archive
 TIMESTAMP=$(date +"%Y.%m.%d_%H.%M.%S")
-zip /qbittorrentConfig/qbittorrent_backup_${TIMESTAMP}.zip qbittorrentConfig/qBittorrent/qBittorrent.conf qbittorrentConfig/qBittorrent/categories.json
+zip /qbittorrentConfig/qbittorrent_backup_${TIMESTAMP}.zip /qbittorrentConfig/qBittorrent/qBittorrent.conf /qbittorrentConfig/qBittorrent/categories.json

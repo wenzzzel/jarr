@@ -5,6 +5,7 @@ RUN apk add --update --no-cache cronie
 RUN apk add --update --no-cache sshpass
 RUN apk add --update --no-cache openssh
 RUN apk add --update --no-cache curl
+RUN apk add --update --no-cache zip
 # Setup cron stuff
 WORKDIR /app
 COPY CronScripts/create-backup.sh /app/create-backup.sh
